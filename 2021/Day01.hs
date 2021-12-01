@@ -1,26 +1,11 @@
 module Day01 where
 
-increaseDecrease :: Ord a => [a] -> [Bool]
-increaseDecrease [] = []
-increaseDecrease [_] = []
-increaseDecrease (x : y : xs)
-  | x < y = True : increaseDecrease (y : xs)
-  | otherwise = False : increaseDecrease (y : xs)
-
-increasedCount :: [Bool] -> Int
-increasedCount = length . filter id
+increasedItems :: Ord a => [a] -> Int
+increasedItems xs = length . filter id $ zipWith (<) xs (drop 1 xs)
 
 slidedItems :: Num a => [a] -> [a]
-slidedItems [] = []
-slidedItems [_] = []
-slidedItems [_, _] = []
-slidedItems (x : y : z : xs) = (x + y + z) : slidedItems (y : z : xs)
+slidedItems xs = zipWith3 (\x y z -> x + y + z) xs (drop 1 xs) (drop 2 xs)
 
-partOne :: (Ord a, Num a) => [a] -> Int
-partOne = increasedCount . increaseDecrease
-
-partTwo :: (Ord a, Num a) => [a] -> Int
-partTwo = increasedCount . increaseDecrease . slidedItems
-
+-- solution function returns -> (Part1 Count, Part2 Count)
 solution :: (Ord a, Num a) => [a] -> (Int, Int)
-solution input = (partOne input, partTwo input)
+solution input = (increasedItems input, increasedItems $ slidedItems input)
