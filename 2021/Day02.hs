@@ -1,5 +1,3 @@
-{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
-
 module Day02 where
 
 main :: IO ()
@@ -11,14 +9,8 @@ main = do
 goThroughMoves :: [(String, String)] -> (Int, Int)
 goThroughMoves = foldl calculatePosition (0, 0)
 
-goThroughMovesAndAims :: [(String, String)] -> [Int]
-goThroughMovesAndAims = foldl calculatePositionWithAim [0, 0, 0]
-
-calculatePositionWithAim :: [Int] -> ([Char], String) -> [Int]
-calculatePositionWithAim [h, d, a] (direction, value)
-  | direction == "down" = [h, d, a + read value]
-  | direction == "up" = [h, d, a - read value]
-  | otherwise = [h + read value, d + (read value * a), a]
+goThroughMovesAndAims :: [([Char], String)] -> (Int, Int, Int)
+goThroughMovesAndAims = foldl calculatePositionWithAim (0, 0, 0)
 
 calculatePosition :: (Int, Int) -> ([Char], String) -> (Int, Int)
 calculatePosition (h, d) (direction, value)
@@ -26,12 +18,18 @@ calculatePosition (h, d) (direction, value)
   | direction == "up" = (h, d - read value)
   | otherwise = (h + read value, d)
 
+calculatePositionWithAim :: (Num a1, Num a2, Read a1, Read a2) => (a2, a1, a1) -> ([Char], String) -> (a2, a1, a1)
+calculatePositionWithAim (h, d, a) (direction, value)
+  | direction == "down" = (h, d, a + read value)
+  | direction == "up" = (h, d, a - read value)
+  | otherwise = (h + read value, d + (read value * a), a)
+
 partOne :: [(String, String)] -> Int
 partOne moves = uncurry (*) calculatedMoves
   where
     calculatedMoves = goThroughMoves moves
 
-partTwo :: [(String, String)] -> Int
-partTwo moves = head calculatedMoves * calculatedMoves !! 1
+partTwo :: [([Char], String)] -> Int
+partTwo moves = calculatedH * calculatedD
   where
-    calculatedMoves = goThroughMovesAndAims moves
+    (calculatedH, calculatedD, calculatedA) = goThroughMovesAndAims moves
