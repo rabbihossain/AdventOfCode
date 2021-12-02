@@ -6,30 +6,20 @@ main = do
   let moves = [(x, y) | i <- lines input, let s = span (/= ' ') i, let x = fst s, let y = drop 1 $ snd s]
   print (partOne moves, partTwo moves)
 
-goThroughMoves :: [(String, String)] -> (Int, Int)
-goThroughMoves = foldl calculatePosition (0, 0)
-
-goThroughMovesAndAims :: [([Char], String)] -> (Int, Int, Int)
-goThroughMovesAndAims = foldl calculatePositionWithAim (0, 0, 0)
-
-calculatePosition :: (Int, Int) -> ([Char], String) -> (Int, Int)
-calculatePosition (h, d) (direction, value)
-  | direction == "down" = (h, d + read value)
-  | direction == "up" = (h, d - read value)
-  | otherwise = (h + read value, d)
-
-calculatePositionWithAim :: (Num a1, Num a2, Read a1, Read a2) => (a2, a1, a1) -> ([Char], String) -> (a2, a1, a1)
-calculatePositionWithAim (h, d, a) (direction, value)
-  | direction == "down" = (h, d, a + read value)
-  | direction == "up" = (h, d, a - read value)
-  | otherwise = (h + read value, d + (read value * a), a)
-
-partOne :: [(String, String)] -> Int
-partOne moves = uncurry (*) calculatedMoves
+goThroughMoves :: (Integer, Integer, Integer, Integer) -> ([Char], String) -> (Integer, Integer, Integer, Integer)
+goThroughMoves = calculatePosition
   where
-    calculatedMoves = goThroughMoves moves
+    calculatePosition (forward, depthWithAim, depth, aim) (direction, movement)
+      | direction == "down" = (forward, depthWithAim, depth + read movement, aim + read movement)
+      | direction == "up" = (forward, depthWithAim, depth - read movement, aim - read movement)
+      | otherwise = (forward + read movement, depthWithAim + (read movement * aim), depth, aim)
 
-partTwo :: [([Char], String)] -> Int
-partTwo moves = calculatedH * calculatedD
+partOne :: Foldable t => t ([Char], String) -> Integer
+partOne moves = forward * depth
   where
-    (calculatedH, calculatedD, calculatedA) = goThroughMovesAndAims moves
+    (forward, _, depth, _) = foldl goThroughMoves (0, 0, 0, 0) moves
+
+partTwo :: Foldable t => t ([Char], String) -> Integer
+partTwo moves = forward * depthWithAim
+  where
+    (forward, depthWithAim, _, _) = foldl goThroughMoves (0, 0, 0, 0) moves
