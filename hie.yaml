@@ -1,0 +1,14 @@
+cradle:
+  stack:
+    - path: "./src/Main.hs"
+      component: "haskell:exe:haskell"
+    - path: "./src/AOC2021/Day01.hs"
+      component: "haskell:exe:haskell"
+    - path: "./src/AOC2021/Day02.hs"
+      component: "haskell:exe:haskell"
+    - path: "./src/AOC2021/Day03.hs"
+      component: "haskell:exe:haskell"
+    - path: "./src/AOC2021/Day04.hs"
+      component: "haskell:exe:haskell"
+    - path: "./src/AOC2021/Day05.hs"
+      component: "haskell:exe:haskell"

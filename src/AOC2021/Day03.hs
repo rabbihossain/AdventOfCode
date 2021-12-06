@@ -1,8 +1,8 @@
-module Day03 where
+module AOC2021.Day03 where
 
-main :: IO ()
-main = do
-  input <- readFile "Day03.input"
+solveDay03 :: IO ()
+solveDay03 = do
+  input <- readFile "inputs/2021/Day03.input"
   let dataset = lines input
   let dataColumns = zipMany dataset
   print (partOne dataColumns, partTwo dataColumns dataset)

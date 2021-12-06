@@ -1,8 +1,8 @@
-module Day02 where
+module AOC2021.Day02 where
 
-main :: IO ()
-main = do
-  input <- readFile "Day02.input"
+solveDay02 :: IO ()
+solveDay02 = do
+  input <- readFile "inputs/2021/Day02.input"
   let moves = [(x, y) | i <- lines input, let s = span (/= ' ') i, let x = fst s, let y = drop 1 $ snd s]
   print (partOne moves, partTwo moves)
 

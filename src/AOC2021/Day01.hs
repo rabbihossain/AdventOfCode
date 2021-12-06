@@ -1,8 +1,8 @@
-module Day01 where
+module AOC2021.Day01 where
 
-main :: IO ()
-main = do
-  input <- readFile "Day01.input"
+solveDay01 :: IO ()
+solveDay01 = do
+  input <- readFile "inputs/2021/Day01.input"
   let moves = [read x | x <- lines input]
   print $ solution moves
 
