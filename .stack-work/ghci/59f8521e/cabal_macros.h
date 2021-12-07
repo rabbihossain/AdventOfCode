@@ -44,16 +44,16 @@
   (major1) == 0 && (major2) == 6 && (minor) <= 5)
 #endif /* MIN_VERSION_containers */
 
-/* package dsp-0.2.5.1 */
-#ifndef VERSION_dsp
-#define VERSION_dsp "0.2.5.1"
-#endif /* VERSION_dsp */
-#ifndef MIN_VERSION_dsp
-#define MIN_VERSION_dsp(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  2 || \
-  (major1) == 0 && (major2) == 2 && (minor) <= 5)
-#endif /* MIN_VERSION_dsp */
+/* package hashmap-1.3.3 */
+#ifndef VERSION_hashmap
+#define VERSION_hashmap "1.3.3"
+#endif /* VERSION_hashmap */
+#ifndef MIN_VERSION_hashmap
+#define MIN_VERSION_hashmap(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  3 || \
+  (major1) == 1 && (major2) == 3 && (minor) <= 3)
+#endif /* MIN_VERSION_hashmap */
 
 /* package split-0.2.3.4 */
 #ifndef VERSION_split
@@ -144,8 +144,11 @@
 #endif /* MIN_TOOL_VERSION_runghc */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "haskell-0.1.0.0-3bZ11eM0lvMJlOCK4y26JI-haskell"
+#define CURRENT_COMPONENT_ID "haskell-0.1.0.0-4Ra2z8SQPIJ4Lm9F4ymvIg-haskell"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
 #endif /* CURRENT_PACKAGE_VERSION */
+
+#undef CURRENT_PACKAGE_KEY
+#undef CURRENT_COMPONENT_ID

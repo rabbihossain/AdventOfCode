@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/Users/rabbi/Nebula/test_projects/AdventOfCode/.stack-work/install/x86_64-osx/204c2016f5e910aeaa6aaa1d1d9d0af65d55b2a2656a2a056bbf8614d2505c33/8.10.7/bin"
-libdir     = "/Users/rabbi/Nebula/test_projects/AdventOfCode/.stack-work/install/x86_64-osx/204c2016f5e910aeaa6aaa1d1d9d0af65d55b2a2656a2a056bbf8614d2505c33/8.10.7/lib/x86_64-osx-ghc-8.10.7/haskell-0.1.0.0-D1AYwnxkJUoCIkxZ63ruMv-haskell"
+libdir     = "/Users/rabbi/Nebula/test_projects/AdventOfCode/.stack-work/install/x86_64-osx/204c2016f5e910aeaa6aaa1d1d9d0af65d55b2a2656a2a056bbf8614d2505c33/8.10.7/lib/x86_64-osx-ghc-8.10.7/haskell-0.1.0.0-3bZ11eM0lvMJlOCK4y26JI-haskell"
 dynlibdir  = "/Users/rabbi/Nebula/test_projects/AdventOfCode/.stack-work/install/x86_64-osx/204c2016f5e910aeaa6aaa1d1d9d0af65d55b2a2656a2a056bbf8614d2505c33/8.10.7/lib/x86_64-osx-ghc-8.10.7"
 datadir    = "/Users/rabbi/Nebula/test_projects/AdventOfCode/.stack-work/install/x86_64-osx/204c2016f5e910aeaa6aaa1d1d9d0af65d55b2a2656a2a056bbf8614d2505c33/8.10.7/share/x86_64-osx-ghc-8.10.7/haskell-0.1.0.0"
 libexecdir = "/Users/rabbi/Nebula/test_projects/AdventOfCode/.stack-work/install/x86_64-osx/204c2016f5e910aeaa6aaa1d1d9d0af65d55b2a2656a2a056bbf8614d2505c33/8.10.7/libexec/x86_64-osx-ghc-8.10.7/haskell-0.1.0.0"
