@@ -18,3 +18,5 @@ cradle:
       component: "haskell:exe:haskell"
     - path: "./src/AOC2021/Day08.hs"
       component: "haskell:exe:haskell"
+    - path: "./src/AOC2021/Day09.hs"
+      component: "haskell:exe:haskell"

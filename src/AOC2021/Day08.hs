@@ -36,7 +36,7 @@ decideTwoThreeFive xs d
     four = head [x | x <- xs, length x == 4]
 
 findEasyNumbers :: ([String], [[Char]]) -> [Int]
-findEasyNumbers (firstHalf, lastHalf) = [read x :: Int | x <- lastHalf, guessThatDigit firstHalf x == '1' || guessThatDigit firstHalf x == '4' || guessThatDigit firstHalf x == '7' || guessThatDigit firstHalf x == '8']
+findEasyNumbers (firstHalf, lastHalf) = [read x :: Int | x <- lastHalf, guessThatDigit firstHalf x `elem` ['1', '4', '7', '8']]
 
 findAllNumbers :: ([String], [String]) -> String
 findAllNumbers (firstHalf, lastHalf) = map (guessThatDigit firstHalf) lastHalf
